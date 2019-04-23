@@ -31,7 +31,7 @@ First, create a folder `templates`. Inside that folder, you can create as many t
 
 You are not limited to project imports, it is possible to represent every option supported by Things.
 
-To actually transcode the templates into a web page with usable links, run the following command: `pipenv run python parse.py FILENAME`
+To actually transcode the templates into a web page with usable links, run the following command: `pipenv run python parse.py INPUT_DIR OUTFILE`
 
 The resulting file can be uploaded to your webserver for easy import.
 

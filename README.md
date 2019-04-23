@@ -38,17 +38,19 @@ The resulting file can be uploaded to your webserver for easy import.
 ## Automation
 
 ```makefile
-CC = pipenv run python
-OUTFILE = "things3.html"
-SSH = "username@server"
+PY = pipenv run python
+OUTFILE = things3.html
+TEMPLATES_DIR = templates
+SSH_DIR = CUSTOM
 
 .PHONY: all
 
 all: $(OUTFILE) upload
 
-$(OUTFILE): parse.py templates/*
-	$(CC) $< $(OUTFILE)
+$(OUTFILE): parse.py $(TEMPLATES_DIR)/*
+	$(PY) $< $(TEMPLATES_DIR) $@
 
 upload: $(OUTFILE)
-	scp -rp $(OUTFILE) $(SSH)
+	scp -rp $< $(SSH_DIR)
+
 ```

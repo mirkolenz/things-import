@@ -10,7 +10,7 @@ templates_folder = "templates/"
 yaml_parser = ruamel.yaml.YAML(typ="safe")
 results = {}
 
-filenames = [file for file in os.listdir(templates_folder) if file.endswith(".yml")]
+filenames = [file for file in os.listdir(sys.argv[1]) if file.endswith(".yml")]
 for filename in filenames:
     with open(os.path.join(templates_folder, filename)) as file:
         yaml_data = yaml_parser.load(file)
@@ -24,7 +24,7 @@ list_str = ""
 for key, value in sorted(results.items()):
     list_str += f"<li><a href='{value}'>{key}</a></li>"
 
-with open(sys.argv[1], "w") as file:
+with open(sys.argv[2], "w") as file:
     file.writelines(
         """
         <html>

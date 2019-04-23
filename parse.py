@@ -1,4 +1,4 @@
-import ruamel.yaml
+from ruamel import yaml
 import json
 import sys
 import urllib.parse
@@ -7,7 +7,7 @@ import os
 things_prefix = "things:///json?data="
 templates_folder = "templates/"
 
-yaml_parser = ruamel.yaml.YAML(typ="safe")
+yaml_parser = yaml.YAML(typ="safe")
 results = {}
 
 filenames = [file for file in os.listdir(sys.argv[1]) if file.endswith(".yml")]

@@ -4,6 +4,7 @@
 
 - Python 3
 - pipenv
+- Optional: make
 
 ## Installation
 
@@ -30,6 +31,24 @@ First, create a folder `templates`. Inside that folder, you can create as many t
 
 You are not limited to project imports, it is possible to represent every option supported by Things.
 
-To actually transcode the templates into a web page with usable links, run the following command: `pipenv run python parse.py`
+To actually transcode the templates into a web page with usable links, run the following command: `pipenv run python parse.py FILENAME`
 
-The resulting file is called `things3.html` and can be uploaded to your webserver for easy import.
+The resulting file can be uploaded to your webserver for easy import.
+
+## Automation
+
+```makefile
+CC = pipenv run python
+OUTFILE = "things3.html"
+SSH = "username@server"
+
+.PHONY: all
+
+all: $(OUTFILE) upload
+
+$(OUTFILE): parse.py templates/*
+	$(CC) $< $(OUTFILE)
+
+upload: $(OUTFILE)
+	scp -rp $(OUTFILE) $(SSH)
+```

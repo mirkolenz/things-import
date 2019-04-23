@@ -24,7 +24,7 @@ list_str = ""
 for key, value in sorted(results.items()):
     list_str += f"<li><a href='{value}'>{key}</a></li>"
 
-with open("things3.html", "w") as file:
+with open(sys.argv[1], "w") as file:
     file.writelines(
         """
         <html>

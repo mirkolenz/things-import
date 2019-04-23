@@ -37,20 +37,4 @@ The resulting file can be uploaded to your webserver for easy import.
 
 ## Automation
 
-```makefile
-PY = pipenv run python
-OUTFILE = things3.html
-TEMPLATES_DIR = templates
-SSH_DIR = CUSTOM
-
-.PHONY: all
-
-all: $(OUTFILE) upload
-
-$(OUTFILE): parse.py $(TEMPLATES_DIR)/*
-	$(PY) $< $(TEMPLATES_DIR) $@
-
-upload: $(OUTFILE)
-	scp -rp $< $(SSH_DIR)
-
-```
+Use the command `make`.

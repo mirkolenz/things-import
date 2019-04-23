@@ -1,7 +1,7 @@
 things3.html
 .vscode/
 templates/
-Makefile
+Makefile-Config.mk
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

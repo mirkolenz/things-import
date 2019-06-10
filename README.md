@@ -3,7 +3,7 @@
 ## Requirements
 
 - Python 3
-- pipenv
+- poetry
 - make
 
 ## Installation

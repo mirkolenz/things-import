@@ -1,4 +1,4 @@
-PY = pipenv run python
+PY = poetry run python
 OUTFILE = things3.html
 TEMPLATES_DIR = templates
 SCP = scp -rp
@@ -21,7 +21,7 @@ clean:
 	rm -f $(OUTFILE)
 
 install: Pipfile
-	pipenv install
+	poetry install
 
 uninstall:
-	pipenv --rm
+	poetry env remove 3.7
